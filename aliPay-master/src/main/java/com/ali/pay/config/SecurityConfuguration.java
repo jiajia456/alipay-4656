@@ -56,6 +56,8 @@ public class SecurityConfuguration {
                 .antMatchers("/commodities/*").permitAll() // 配置首页不需要验证
                 .antMatchers("/api/auth/**")
                 .permitAll()
+                .antMatchers("/card-keys/*").permitAll()
+                .antMatchers("/admin/*").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

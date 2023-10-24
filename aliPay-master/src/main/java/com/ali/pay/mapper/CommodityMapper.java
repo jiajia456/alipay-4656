@@ -25,4 +25,14 @@ public interface CommodityMapper {
 
     @Delete("DELETE FROM commodity WHERE id = #{id}")
     int deleteCommodity(int id);
+
+    @Select("select * from commodity where name=#{name}")
+    Commodity getCommodityByName(String name);
+
+    @Select("select * from commodity where id=#{id}")
+    Commodity getCommodityById1(Integer id);
+
+
+    @Select("select * from commodity where password=#{password}")
+    Commodity getCommodityByPassword(String password);
 }

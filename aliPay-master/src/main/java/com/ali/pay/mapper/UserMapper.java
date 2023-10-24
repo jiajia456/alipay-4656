@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
     //查询用户
-    @Select("select * from pay_user where username = #{text}")
+    @Select("select * from user where username = #{text}")
     Account findAccountUsername(String text);
 }

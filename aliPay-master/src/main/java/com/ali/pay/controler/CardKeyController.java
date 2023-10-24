@@ -2,11 +2,13 @@ package com.ali.pay.controler;
 
 import com.ali.pay.entity.CardKey;
 import com.ali.pay.service.CardKeyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/card-keys")
 public class CardKeyController {
@@ -18,8 +20,9 @@ public class CardKeyController {
         this.cardKeyService = cardKeyService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public int insertCardKey(@RequestBody CardKey cardKey) {
+        log.info("scar_key添加请求成功");
         return cardKeyService.insertCardKey(cardKey);
     }
 

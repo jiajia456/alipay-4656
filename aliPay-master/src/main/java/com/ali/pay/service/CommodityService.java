@@ -7,6 +7,7 @@ import com.ali.pay.service.Impl.CommodityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +24,7 @@ public class CommodityService implements CommodityServiceImpl {
         this.commodityMapper = commodityMapper;
     }
 
+
     @Override
     public int insertCommodity(Commodity commodity) {
         return commodityMapper.insertCommodity(commodity);
@@ -34,8 +36,16 @@ public class CommodityService implements CommodityServiceImpl {
     }
 
     @Override
+    public Commodity getCommodityById1(Integer id) {
+        return commodityMapper.getCommodityById1(id);
+    }
+
+
+    @Override
     public List<Commodity> getAllCommodities() {
-        return commodityMapper.getAllCommodities();
+
+        List<Commodity> allCommodities = commodityMapper.getAllCommodities();
+        return  allCommodities;
     }
 
     @Override
@@ -46,5 +56,22 @@ public class CommodityService implements CommodityServiceImpl {
     @Override
     public int deleteCommodity(int id) {
         return commodityMapper.deleteCommodity(id);
+    }
+
+    @Override
+    public boolean getCommodityByName(String name) {
+        Commodity commodityByName = commodityMapper.getCommodityByName(name);
+        if(commodityByName!=null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public List<Commodity> getCommodityByPassword(String password) {
+        List<Commodity> commodityArrayList = new ArrayList<>();
+        Commodity commodityByPassword = commodityMapper.getCommodityByPassword(password);
+        commodityArrayList.add(commodityByPassword);
+        return commodityArrayList;
     }
 }

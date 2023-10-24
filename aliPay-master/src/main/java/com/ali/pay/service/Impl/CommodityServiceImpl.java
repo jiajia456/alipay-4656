@@ -10,9 +10,17 @@ public interface CommodityServiceImpl {
 
     Commodity getCommodityById(String password);
 
+    Commodity getCommodityById1(Integer id);
+
+
     List<Commodity> getAllCommodities();
 
     int updateCommodity(Commodity commodity);
 
     int deleteCommodity(int id);
+
+    public boolean getCommodityByName(String name);
+
+
+    List<Commodity> getCommodityByPassword(String password);
 }

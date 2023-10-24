@@ -25,7 +25,7 @@ public class CardKeyService implements CardKeyServiceImpl {
     @Override
     public int insertCardKey(CardKey cardKey) {
         if(cardKey != null){
-
+            return cardKeyMapper.insertCardKey(cardKey);
         }
         return cardKeyMapper.insertCardKey(cardKey);
     }
